@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to questions_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+  <%= link_to edit_question_path(@question), :class => 'btn btn-primary' do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+  <h1>Listing questions</h1>
+</div>
+
+<dl>
+  <dt>Text:</dt>
+  <dd><%= @question.text %></dd>
+
+  <dt>Author:</dt>
+  <dd><%= @question.author %></dd>
+
+  <dt>Answer:</dt>
+  <dd><%= @question.answer_id %></dd>
+
+</dl>
