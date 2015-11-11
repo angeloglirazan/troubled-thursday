@@ -28,9 +28,10 @@ gem 'bootstrap-generators', '~> 2.0'
 # Bootstrap generators requires Simple Form by default
 gem 'simple_form'
 
-# Use devise
+# Use devise for user auth
 gem 'devise'
-
+# Use activeadmin for admin panel
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
