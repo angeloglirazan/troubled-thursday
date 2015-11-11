@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :answers
   
   resources :questions, :only => [:index, :show, :new, :create], :constraints => { :format => "html" }
