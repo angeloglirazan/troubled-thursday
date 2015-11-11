@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Answer, :type => :model do
   it "is invalid without text (with or without spaces)" do
-    a_one = Answer.create(
-      :text => ""
+    a_one = Answer.new(
+      :text => "",
       :admin_id => 0)
-    expect(a_one).not_to be_valid
-    a_two = Answer.create(
-      :text => " "
+    a_one.valid?
+    expect(a_one.errors[:text]).to include("can't be blank")
+    a_two = Answer.new(
+      :text => " ",
       :admin_id => 0)
-    expect(a_two).not_to be_valid
+      a_two.valid?
+    expect(a_two.errors[:text]).to include("can't be blank")
   end
 end
