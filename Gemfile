@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Use bootstrap gem
+gem "bootstrap-sass"
 # Use bootstrap when scaffold generators run
 gem 'bootstrap-generators', '~> 2.0'
 # Bootstrap generators requires Simple Form by default
