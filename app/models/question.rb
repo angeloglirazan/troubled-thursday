@@ -12,4 +12,6 @@ class Question < ActiveRecord::Base
     self.text = self.text.strip unless self.text.nil?
     self.author = self.author.strip unless self.author.nil?
   end
+  
+  accepts_nested_attributes_for :answer
 end
