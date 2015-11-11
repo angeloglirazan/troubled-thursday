@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admins
   resources :answers
-  resources :questions
+  
+  resources :questions, :only => [:index, :show, :new, :create], :constraints => { :format => "html" }
+  
+  root "questions#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

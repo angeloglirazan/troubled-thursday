@@ -13,8 +13,6 @@
       <th>Author</th>
       <th>Answer</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -25,8 +23,6 @@
       <td><%= question.author %></td>
       <td><%= question.answer_id %></td>
       <td><%= link_to 'Show', question %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %></td>
-      <td><%= link_to 'Destroy', question, data: { confirm: 'Are you sure?' }, method: :delete %></td>
     </tr>
 <% end %>
   </tbody>

@@ -59,14 +59,6 @@ RSpec.describe QuestionsController, :type => :controller do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested question as @question" do
-      question = Question.create! valid_attributes
-      get :edit, {:id => question.to_param}, valid_session
-      expect(assigns(:question)).to eq(question)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Question" do
@@ -97,62 +89,6 @@ RSpec.describe QuestionsController, :type => :controller do
         post :create, {:question => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested question" do
-        question = Question.create! valid_attributes
-        put :update, {:id => question.to_param, :question => new_attributes}, valid_session
-        question.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested question as @question" do
-        question = Question.create! valid_attributes
-        put :update, {:id => question.to_param, :question => valid_attributes}, valid_session
-        expect(assigns(:question)).to eq(question)
-      end
-
-      it "redirects to the question" do
-        question = Question.create! valid_attributes
-        put :update, {:id => question.to_param, :question => valid_attributes}, valid_session
-        expect(response).to redirect_to(question)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the question as @question" do
-        question = Question.create! valid_attributes
-        put :update, {:id => question.to_param, :question => invalid_attributes}, valid_session
-        expect(assigns(:question)).to eq(question)
-      end
-
-      it "re-renders the 'edit' template" do
-        question = Question.create! valid_attributes
-        put :update, {:id => question.to_param, :question => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE destroy" do
-    it "destroys the requested question" do
-      question = Question.create! valid_attributes
-      expect {
-        delete :destroy, {:id => question.to_param}, valid_session
-      }.to change(Question, :count).by(-1)
-    end
-
-    it "redirects to the questions list" do
-      question = Question.create! valid_attributes
-      delete :destroy, {:id => question.to_param}, valid_session
-      expect(response).to redirect_to(questions_url)
     end
   end
 
