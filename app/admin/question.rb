@@ -13,7 +13,7 @@ ActiveAdmin.register Question do
   #   permitted
   # end
 
-  permit_params :text, :author
+  permit_params :text, :author, :answer_attributes => [:text, :user_id]
   
   config.comments = false
   
@@ -21,5 +21,42 @@ ActiveAdmin.register Question do
   filter :author
   filter :created_at
   filter :updated_at
-
+  
+  menu :label => proc{
+    new_questions = Question.where(:answer_id => nil).count
+    "Questions <i>#{new_questions}</i>".html_safe
+  }
+  
+  show do
+    attributes_table do
+      row :text
+      row :author
+    end
+    if question.answer
+      panel "Answer" do
+        attributes_table_for question.answer do
+          row :text
+        end
+      end
+    end
+  end
+  
+  form do |f|
+    unless f.object.answer
+      f.object.build_answer
+    end
+    f.inputs "Question" do
+      f.input :text
+      f.input :author, :hint => "Shows 'Anonymous' if empty."
+    end
+    if !f.object.new_record?
+      f.inputs "Answer" do
+        f.semantic_fields_for :answer do |a|
+          a.input :text
+        end
+      end
+    end
+    f.submit
+  end
+  
 end
