@@ -15,7 +15,7 @@ ActiveAdmin.register Question do
 
   permit_params :text, :author, :answer_attributes => [:text, :admin_user_id]
   
-  config.comments = false
+  actions :index, :new, :create, :edit, :update, :destroy
   
   filter :text
   filter :author
@@ -53,7 +53,7 @@ ActiveAdmin.register Question do
       f.inputs "Answer" do
         f.semantic_fields_for :answer do |a|
           a.input :text
-          a.input :admin_user_id, :as => :hidden, :input_html => { :value => proc{current_admin_user.id} }
+          a.input :admin_user_id, :as => :hidden, :input_html => { :value => current_admin_user.id }
         end
       end
     end
