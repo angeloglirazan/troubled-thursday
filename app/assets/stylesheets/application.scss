@@ -16,6 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+div.jumbotron{
+  padding: 30px;
+}
 div.jumbotron .btn{
   float: none !important;
 }
