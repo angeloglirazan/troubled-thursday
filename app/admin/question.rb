@@ -13,7 +13,7 @@ ActiveAdmin.register Question do
   #   permitted
   # end
 
-  permit_params :text, :author, :answer_attributes => [:text, :user_id]
+  permit_params :text, :author, :answer_attributes => [:text, :admin_user_id]
   
   config.comments = false
   
@@ -53,10 +53,23 @@ ActiveAdmin.register Question do
       f.inputs "Answer" do
         f.semantic_fields_for :answer do |a|
           a.input :text
+          a.input :admin_user_id, :as => :hidden, :input_html => { :value => proc{current_admin_user.id} }
         end
       end
     end
     f.submit
+  end
+  
+  controller do
+    def update      
+      question = Question.find(params[:id])
+      if question.update(permitted_params[:question])
+        redirect_to :admin_questions, :notice => "Question updated successfully."
+      else
+        render :edit
+      end
+    end
+    
   end
   
 end
