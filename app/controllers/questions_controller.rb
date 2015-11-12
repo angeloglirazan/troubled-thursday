@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.where.not(:answer_id => nil).order(:created_at => :desc)
+    @questions = Question.where.not(:answer_id => nil).order(:created_at => :desc).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /questions/1

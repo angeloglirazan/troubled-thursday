@@ -5,7 +5,6 @@
   <% end %>
   <h1>Listing questions</h1>
 </div>
-
 <% @questions.each do |question| %>
   <div class="well">
     <h3><%= question.text %></h4>
@@ -15,3 +14,4 @@
     <small>Submitted by: <%= question.submitted_by %></small>
   </div>
 <% end %>
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
