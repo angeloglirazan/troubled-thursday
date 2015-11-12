@@ -1,9 +1,17 @@
 <div class="page-header">
-  <%= link_to new_question_path, :class => 'btn btn-primary' do %>
-    <i class="icon-plus icon-white"></i>
-    Ask a Question
-  <% end %>
-  <h1>Listing questions</h1>
+  <div class="jumbotron">
+    <h1>Troubled Thursdays</h1>
+    <p>
+      Inspired by the incredible community of Humans of New York,<br>
+      Troubled Thursdays allows real people to help other people no matter how far they are apart.
+    </p>
+    <p>
+      <%= link_to new_question_path, :class => 'btn btn-primary btn-lg' do %>
+        <i class="icon-plus icon-white"></i>
+        Ask a Question
+      <% end %>
+    </p>
+  </div>
 </div>
 <% @questions.each do |question| %>
   <div class="well">
@@ -11,7 +19,13 @@
     <p>
       <%= question.answer.text %>
     </p>
-    <small>Submitted by: <%= question.submitted_by %></small>
+    <small>Submitted by: <%= question.submitted_by %> | Answered by: <%= question.answered_by %></small>
   </div>
 <% end %>
-<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+</div>

@@ -15,3 +15,15 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+div.jumbotron .btn{
+  float: none !important;
+}
+
+ul.pagination{
+  float: right;
+}
+
+textarea{
+  resize: none;
+}
