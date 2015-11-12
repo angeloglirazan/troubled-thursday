@@ -7,6 +7,10 @@ class Question < ActiveRecord::Base
     self.author && !self.author.blank? ? self.author : "Anonymous"
   end
   
+  def answered_by
+    self.answer && self.answer.admin_user_id ? AdminUser.find(self.answer.admin_user_id).name : false
+  end
+  
   before_validation :strip_whitespace
   def strip_whitespace
     self.text = self.text.strip unless self.text.nil?
