@@ -1,29 +1,17 @@
 <div class="page-header">
   <%= link_to new_question_path, :class => 'btn btn-primary' do %>
     <i class="icon-plus icon-white"></i>
-    New Question
+    Ask a Question
   <% end %>
   <h1>Listing questions</h1>
 </div>
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th>Author</th>
-      <th>Answer</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
 <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.text %></td>
-      <td><%= question.author %></td>
-      <td><%= question.answer_id %></td>
-      <td><%= link_to 'Show', question %></td>
-    </tr>
+  <div class="well">
+    <h3><%= question.text %></h4>
+    <p>
+      <%= question.answer.text %>
+    </p>
+    <small>Submitted by: <%= question.submitted_by %></small>
+  </div>
 <% end %>
-  </tbody>
-</table>

@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.where.not(:answer_id => nil).order(:created_at => :desc)
   end
 
   # GET /questions/1
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to questions_path, notice: 'Thanks for asking a question! Expect an answer soon. :)'
     else
       render :new
     end
