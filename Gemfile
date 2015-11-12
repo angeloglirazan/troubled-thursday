@@ -30,6 +30,9 @@ gem 'bootstrap-generators', '~> 2.0'
 # Bootstrap generators requires Simple Form by default
 gem 'simple_form'
 
+# Use will_paginate-bootstrap gem for pagination with bootstrap
+gem "will_paginate-bootstrap"
+
 # Use devise for user auth
 gem 'devise'
 # Use activeadmin for admin panel
