@@ -7,7 +7,7 @@
     </p>
     <p>
       <%= link_to new_question_path, :class => 'btn btn-primary btn-lg' do %>
-        <i class="icon-plus icon-white"></i>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Ask a Question
       <% end %>
     </p>
@@ -15,7 +15,7 @@
 </div>
 <% @questions.each do |question| %>
   <div class="well">
-    <h3><%= question.text %></h4>
+    <h3 style="margin-top:0px"><%= question.text %></h3>
     <p>
       <%= question.answer.text %>
     </p>
