@@ -21,9 +21,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use bootstrap gem
-gem "bootstrap-sass"
+# gem "bootstrap-sass" 
+# bootstrap-sass REMOVED due to conflicts with bootstrap-generators
+
 # Use bootstrap when scaffold generators run
-gem 'bootstrap-generators', '~> 2.0'
+gem 'bootstrap-generators', '~> 3.3.4'
 # Bootstrap generators requires Simple Form by default
 gem 'simple_form'
 
